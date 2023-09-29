@@ -30,17 +30,20 @@ int main()
         //Wait for switch press
         while (SW_BLUE == 0);
 
-        //Turn on LED
-        ledRed = 1;
+        //Wait for 150ms
+        //tmr1.reset();
+        //while (tmr1.elapsed_time() < 150ms); //How about this for C++ magic :)
 
-        //Wait for 500ms
-        tmr1.reset();
-        while (tmr1.elapsed_time() < 500ms); //How about this for C++ magic :)
+        //Wait for 150ms using wait_us
+        wait_us(150000);
 
-        wait_us(500000);
+        //Toggle LED
+        ledRed = !ledRed;
+
+        //wait_us(500000);
 
         //Turn off LED
-        ledRed = 0;
+        //ledRed = 0;
     }
 }
 
