@@ -11,6 +11,29 @@ int main()
     c1.display();
     c1_copy.display();
     
+    //Testing new functions
+
+    //Negate & Negated
+    c1.negate();
+    c1.display();
+    ComplexNumber c_neg = c1.negated();
+    c_neg.display();
+    //Subtract & SubtractFrom
+    c1.subtract(c2);
+    c1.display();
+    ComplexNumber c_sub = c1.subtractFrom(c2);
+    c_sub.display();
+    //Multiply & MultiplyWith
+    c1.multiply(c2);
+    c1.display();
+    ComplexNumber c_multi = c1.multiplyWith(c2);
+    c_multi.display();
+    //Divide & DivideWith
+    c1.divide(c2);
+    c1.display();
+    ComplexNumber c_div = c1.divideWith(c2);
+    c_div.display();
+
     ComplexNumber c3 = c1.addedTo(c2);
     c3.conjugate();
     c3.display();

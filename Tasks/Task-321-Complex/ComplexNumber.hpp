@@ -61,6 +61,17 @@ public:
         return ComplexNumber(this->real, -1.0*this->imag);
     }
 
+    //Negate - verb, so perform in place
+    void negate() {
+        this->real *= -1.0;
+        this->imag *= -1.0;
+    }
+
+    //Negated - adjective, so return new copy
+    ComplexNumber negated() {
+        return ComplexNumber(-1.0*this->real, -1.0*this->imag);
+    }
+
     //Add in place
     void add(const ComplexNumber& c) {
         this->real += c.real;
@@ -72,6 +83,39 @@ public:
         return ComplexNumber(this->real+c.real, this->imag+c.imag);
     }
     
+    //Subtract in place
+    void subtract(const ComplexNumber& c) {
+        this->real -= c.real;
+        this->imag -= c.imag;
+    }
+
+    //Subtract
+    ComplexNumber subtractFrom(const ComplexNumber& c) {
+        return ComplexNumber(c.real-this->real, c.imag-this->imag);
+    }
+
+    //Multiply in place
+    void multiply(const ComplexNumber& c) {
+        this->real *= c.real;
+        this->imag *= c.imag;
+    }
+
+    //Multiply
+    ComplexNumber multiplyWith(const ComplexNumber& c) {
+        return ComplexNumber(this->real*c.real, this->imag*c.imag);
+    }
+
+    //Divide in place
+    void divide(const ComplexNumber& c) {
+        this->real /= c.real;
+        this->imag /= c.imag;
+    }
+
+    //Divide
+    ComplexNumber divideWith(const ComplexNumber& c) {
+        return ComplexNumber(this->real/c.real, this->imag/c.imag);
+    }
+
     //Display
     void display() {
         cout << this->real << " + " << this->imag << "j" << endl;

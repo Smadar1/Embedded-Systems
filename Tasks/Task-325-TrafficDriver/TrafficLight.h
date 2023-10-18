@@ -20,13 +20,20 @@ class TrafficLight
     Ticker t;
     LIGHT_STATE State;
 
+    double flashSpeed;
+    double* flashSpeed_ptr = &flashSpeed;
+
     void yellowFlashISR();
     void flashYellow(bool flash);
     void updateOutput();
 
     public:
     //Constructor
-    TrafficLight(PinName redPin = TRAF_RED1_PIN, PinName yellowPin = TRAF_YEL1_PIN, PinName greenPin=TRAF_GRN1_PIN); 
+    TrafficLight(PinName redPin = TRAF_RED1_PIN, PinName yellowPin = TRAF_YEL1_PIN, PinName greenPin=TRAF_GRN1_PIN);
+
+    void stop();
+    void setFlashSpeed(double);
+    double getFlashSpeed(); 
 
     //Destructor
     ~TrafficLight();

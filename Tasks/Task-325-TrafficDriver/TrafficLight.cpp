@@ -20,6 +20,23 @@ TrafficLight::~TrafficLight()
     greenLED = 0;
 } 
 
+// Public function to reset lights to RED
+void TrafficLight::stop() {
+    State = STOP;
+    updateOutput();
+}
+
+// Public function to set flash speed of yellow LED
+void TrafficLight::setFlashSpeed(double sp_flash) {
+    *flashSpeed_ptr = sp_flash;
+}
+
+double TrafficLight::getFlashSpeed(){
+    double temp = *flashSpeed_ptr;
+    printf("\nCurrent FlashSpeed: %f", temp);
+    return(temp);
+}
+
 // Interrupt Service Routine (ISR)
 void TrafficLight::yellowFlashISR() {
     yellowLED = !yellowLED;
@@ -27,10 +44,10 @@ void TrafficLight::yellowFlashISR() {
 
 // Private member function to switch flasher on or off
 void TrafficLight::flashYellow(bool flash) {
-    t.detach(); //Turn off ticker
+    t.detach(); //Turn off tickers
     if (flash) {
         //Turn on ticker ..... Hmmm, interrupts!
-        t.attach(callback(this, &TrafficLight::yellowFlashISR), 200ms);
+        t.attach(callback(this, &TrafficLight::yellowFlashISR), flashSpeed);
     }
 }
 
