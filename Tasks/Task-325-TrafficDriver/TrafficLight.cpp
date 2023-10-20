@@ -28,13 +28,12 @@ void TrafficLight::stop() {
 
 // Public function to set flash speed of yellow LED
 void TrafficLight::setFlashSpeed(double sp_flash) {
-    *flashSpeed_ptr = sp_flash;
+    this->flashSpeed = sp_flash;
+    flashYellow(true);
 }
 
 double TrafficLight::getFlashSpeed(){
-    double temp = *flashSpeed_ptr;
-    printf("\nCurrent FlashSpeed: %f", temp);
-    return(temp);
+    return this->flashSpeed;
 }
 
 // Interrupt Service Routine (ISR)

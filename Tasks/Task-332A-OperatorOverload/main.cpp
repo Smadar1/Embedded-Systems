@@ -92,7 +92,7 @@ public:
     operator double() {
         return _real;
     }
-
+     
 };
 
 

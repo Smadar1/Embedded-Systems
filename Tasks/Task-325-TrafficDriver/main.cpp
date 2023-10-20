@@ -25,14 +25,14 @@ int main()
             {
                 lights.stop(); //Resets traffic lights if Button A is pressed.
             }
-            else if (Butt_B==1 && ((LightSpeed <= 1) && (LightSpeed >= 0.1)))
+            else if (Butt_B==1 && ((LightSpeed <= 1) && (LightSpeed >= 0.2)))
             {
                 LightSpeed -= 0.1;
                 lights.setFlashSpeed(LightSpeed);
                 wait_us(300000);
                 while(Butt_B==1); //Wait for button release
             }
-            else if (Butt_D==1 && ((LightSpeed <= 0.9) && (LightSpeed >= 0)))
+            else if (Butt_D==1 && ((LightSpeed <= 0.9) && (LightSpeed >= 0.1)))
             {
                 LightSpeed += 0.1;
                 lights.setFlashSpeed(LightSpeed);
