@@ -85,8 +85,16 @@ public:
     bool operator==(DoubleNumber& u)
     {
         // Return a true if u is equal to `this`
-        // ** TO BE DONE BY THE STUDENT **
-        return false;
+        DoubleNumber Test_Val;
+        Test_Val = *this;
+        if (Test_Val == u)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     operator double() {
